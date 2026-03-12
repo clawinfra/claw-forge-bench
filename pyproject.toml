@@ -1,0 +1,26 @@
+[project]
+name = "claw-forge-bench"
+version = "0.1.0"
+description = "Ablation benchmark suite for claw-forge middleware features"
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml>=6.0",
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E402"]  # Scripts need sys.path manipulation before imports
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

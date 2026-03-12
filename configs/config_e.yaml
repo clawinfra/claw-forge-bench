@@ -1,0 +1,4 @@
+agent:
+  edit_mode: hashline
+  loop_detect_threshold: 5
+  verify_on_exit: true

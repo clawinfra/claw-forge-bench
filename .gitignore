@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Solutions (validation only, never committed)
+_solution.py
+
+# Benchmark runs
+/tmp/claw-forge-bench-runs/
+*.jsonl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# uv
+uv.lock
+
+# PBR state
+.pbr-state.json

@@ -1,0 +1,17 @@
+pool:
+  strategy: priority
+  max_retries: 2
+
+providers:
+  claude-oauth:
+    type: anthropic_oauth
+    priority: 1
+
+agent:
+  default_model: claude-sonnet-4-6
+  max_tokens: 8192
+  temperature: 0.0
+  max_concurrent_agents: 1
+
+state:
+  database_url: "sqlite+aiosqlite:///claw_forge.db"

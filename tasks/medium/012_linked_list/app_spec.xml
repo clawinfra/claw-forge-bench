@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_specification mode="greenfield">
+  <project_name>bench-012_linked_list</project_name>
+  <overview>Fix the linked list delete method for tail node.</overview>
+  <technology_stack>
+    <language>Python 3.11+</language>
+    <testing>pytest</testing>
+  </technology_stack>
+  <features>
+    <feature id="fix-impl" priority="P0">
+      <title>Fix implementation</title>
+      <description>
+        Fix the implementation in src/linked_list.py so that all tests
+        in tests/test_linked_list.py pass.
+      </description>
+      <acceptance_criteria>
+        <criterion>All tests in tests/test_linked_list.py pass</criterion>
+      </acceptance_criteria>
+    </feature>
+  </features>
+</project_specification>

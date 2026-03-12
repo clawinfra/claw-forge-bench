@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_specification mode="greenfield">
+  <project_name>bench-027_type_checker</project_name>
+  <overview>Fix the type checker to unify generic type parameters.</overview>
+  <technology_stack>
+    <language>Python 3.11+</language>
+    <testing>pytest</testing>
+  </technology_stack>
+  <features>
+    <feature id="fix-impl" priority="P0">
+      <title>Fix implementation</title>
+      <description>
+        Fix the implementation in src/type_checker.py so that all tests
+        in tests/test_type_checker.py pass.
+      </description>
+      <acceptance_criteria>
+        <criterion>All tests in tests/test_type_checker.py pass</criterion>
+      </acceptance_criteria>
+    </feature>
+  </features>
+</project_specification>

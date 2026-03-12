@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_specification mode="greenfield">
+  <project_name>bench-028_query_planner</project_name>
+  <overview>Fix the query planner to use selectivity estimates for JOIN ordering.</overview>
+  <technology_stack>
+    <language>Python 3.11+</language>
+    <testing>pytest</testing>
+  </technology_stack>
+  <features>
+    <feature id="fix-impl" priority="P0">
+      <title>Fix implementation</title>
+      <description>
+        Fix the implementation in src/query_planner.py so that all tests
+        in tests/test_query_planner.py pass.
+      </description>
+      <acceptance_criteria>
+        <criterion>All tests in tests/test_query_planner.py pass</criterion>
+      </acceptance_criteria>
+    </feature>
+  </features>
+</project_specification>

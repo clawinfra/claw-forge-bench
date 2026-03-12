@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_specification mode="greenfield">
+  <project_name>bench-005_count_vowels</project_name>
+  <overview>Fix the vowel counter to include all vowels.</overview>
+  <technology_stack>
+    <language>Python 3.11+</language>
+    <testing>pytest</testing>
+  </technology_stack>
+  <features>
+    <feature id="fix-impl" priority="P0">
+      <title>Fix implementation</title>
+      <description>
+        Fix the implementation in src/count_vowels.py so that all tests
+        in tests/test_count_vowels.py pass.
+      </description>
+      <acceptance_criteria>
+        <criterion>All tests in tests/test_count_vowels.py pass</criterion>
+      </acceptance_criteria>
+    </feature>
+  </features>
+</project_specification>

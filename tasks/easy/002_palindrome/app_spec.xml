@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_specification mode="greenfield">
+  <project_name>bench-002_palindrome</project_name>
+  <overview>Fix the palindrome checker to handle edge cases.</overview>
+  <technology_stack>
+    <language>Python 3.11+</language>
+    <testing>pytest</testing>
+  </technology_stack>
+  <features>
+    <feature id="fix-impl" priority="P0">
+      <title>Fix implementation</title>
+      <description>
+        Fix the implementation in src/palindrome.py so that all tests
+        in tests/test_palindrome.py pass.
+      </description>
+      <acceptance_criteria>
+        <criterion>All tests in tests/test_palindrome.py pass</criterion>
+      </acceptance_criteria>
+    </feature>
+  </features>
+</project_specification>

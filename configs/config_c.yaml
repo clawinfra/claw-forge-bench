@@ -1,0 +1,4 @@
+agent:
+  edit_mode: str_replace
+  loop_detect_threshold: 5
+  verify_on_exit: false
