@@ -239,22 +239,28 @@ def _run_pytest(workdir: Path, timeout_seconds: int = 60) -> tuple[int, int, int
 
     # Parse pytest output for pass/fail counts
     output = proc.stdout + proc.stderr
-    total = 0
-    passed = 0
-    failed = 0
+    total, passed, failed = _parse_pytest_summary(output)
+    return proc.returncode, total, passed, failed
 
-    # Look for summary line like "5 passed, 2 failed" or "5 passed"
-    summary_match = re.search(
-        r"(\d+)\s+passed(?:.*?(\d+)\s+failed)?", output
-    )
-    if summary_match:
-        passed = int(summary_match.group(1))
-        failed = int(summary_match.group(2) or 0)
-        total = passed + failed
+
+def _parse_pytest_summary(output: str) -> tuple[int, int, int]:
+    """Parse pytest output into (total, passed, failed) counts.
+
+    pytest's summary line orders failures *before* passes, e.g.
+    "=== 2 failed, 3 passed in 0.05s ===", so "passed" and "failed" must be
+    matched independently rather than assuming one precedes the other.
+    Falls back to counting per-test PASSED/FAILED markers (from -v output)
+    when no summary line is present.
+    """
+    passed_match = re.search(r"(\d+)\s+passed", output)
+    failed_match = re.search(r"(\d+)\s+failed", output)
+
+    if passed_match or failed_match:
+        passed = int(passed_match.group(1)) if passed_match else 0
+        failed = int(failed_match.group(1)) if failed_match else 0
     else:
-        # Try to count from "PASSED" / "FAILED" lines
+        # Fallback: count from per-test "PASSED" / "FAILED" markers
         passed = len(re.findall(r"PASSED", output))
         failed = len(re.findall(r"FAILED", output))
-        total = passed + failed
 
-    return proc.returncode, total, passed, failed
+    return passed + failed, passed, failed
